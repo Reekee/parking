@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>
+            หน้าแรก
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only color="royal" (click)="check()">
+                <ion-icon name="checkbox-outline"></ion-icon> ตรวจสอบที่ว่าง
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div *ngIf="!data.status">
+        <ion-card no-margin margin-bottom class="w-100">
+            <ion-card-header>
+                ข้อมูลที่จอดรถ
+            </ion-card-header>
+            <ion-card-content>
+                <div *ngIf="data.num>0" class="text-secondary text-center">มีที่จอดว่าง {{ data.num }} ที่</div>
+                <div *ngIf="data.num==0" class="text-danger text-center">ไม่มีที่ว่าง</div>
+            </ion-card-content>
+        </ion-card>
+        <button ion-button full color="secondary" icon-start (click)="checkin()">
+            <ion-icon name="return-right"></ion-icon> CHECK IN
+        </button>
+    </div>
+    <div *ngIf="data.status">
+        <ion-card no-margin margin-bottom class="w-100">
+            <ion-card-header>
+                ข้อมูลการ Check In ของคุณ
+            </ion-card-header>
+            <ion-card-content>
+                <ion-list>
+                    <ion-item>
+                        รหัส
+                        <ion-note item-end>
+                            {{ data.checkin.checkin_id }}
+                        </ion-note>
+                    </ion-item>
+                    <ion-item>
+                        วัน-เวลา
+                        <ion-note item-end>
+                            {{ data.checkin.datetime1 }}
+                        </ion-note>
+                    </ion-item>
+                    <ion-item>
+                        สถานะ
+                        <ion-note item-end>
+                            <div class="text-secondary">กำลัง Check In</div>
+                        </ion-note>
+                    </ion-item>
+                    <ion-item>
+                        <div class="time-use-label">เวลาที่ใช้</div>
+                        <ion-note item-end>
+                            <div class="time-use-value text-danger">{{ data.checkin.datetime1 | timeUse }} นาที</div>
+                        </ion-note>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+        <button ion-button full color="warning" icon-start (click)="checkout()">
+            <ion-icon name="return-left"></ion-icon> CHECK OUT
+        </button>
+    </div>
+</ion-content>

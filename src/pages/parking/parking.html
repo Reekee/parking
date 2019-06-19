@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>
+            {{ floor.floor_name }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <img src="{{ floor.floor_img }}" />
+        <ion-card-content>
+            <ion-card-title>
+                {{ floor.floor_name }}
+                <span *ngIf="floor.num>0" class="text-secondary">(ที่ว่าง {{ floor.num }})</span>
+                <span *ngIf="floor.num==0" class="text-danger">(ไม่มีที่ว่าง)</span>
+            </ion-card-title>
+        </ion-card-content>
+    </ion-card>
+    <ion-list>
+        <ion-item *ngFor="let item of parking">
+            <ion-icon name='car' item-start></ion-icon>
+            {{ item.parking_name }}
+            <ion-note item-end>
+                <span *ngIf="item.status=='Y'" class="text-secondary">ว่าง</span>
+                <span *ngIf="item.status=='N'" class="text-danger">ไม่ว่าง</span>
+            </ion-note>
+        </ion-item>
+    </ion-list>
+</ion-content>

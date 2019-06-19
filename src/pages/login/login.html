@@ -1,0 +1,21 @@
+<ion-content padding>
+    <ion-card>
+        <img src="assets/imgs/user.png" />
+    </ion-card>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>อีเมลล์</ion-label>
+            <ion-input type="text" [(ngModel)]="auth.email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>รหัสผ่าน</ion-label>
+            <ion-input type="password" [(ngModel)]="auth.password"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button block icon-start (click)="login()">
+        <ion-icon name="log-in"></ion-icon> เข้าสู่ระบบ
+    </button>
+    <button ion-button block color="dark" icon-start (click)="register()">
+        <ion-icon name="add"></ion-icon> ลงทะเบียน
+    </button>
+</ion-content>

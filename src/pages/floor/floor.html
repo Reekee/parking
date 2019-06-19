@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>ชั้นจอดรถ</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let item of floor">
+            <ion-thumbnail item-start>
+                <img src="{{ item.floor_img }}">
+            </ion-thumbnail>
+            <h2>{{ item.floor_name }}</h2>
+            <p *ngIf="item.num>0" class="text-secondary">ที่ว่าง {{ item.num }}</p>
+            <p *ngIf="item.num==0" class="text-danger">ไม่มีที่ว่าง</p>
+            <button ion-button clear item-end (click)="open(item)">เปิดดู</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

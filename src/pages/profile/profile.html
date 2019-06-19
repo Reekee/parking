@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>โปรไฟล์</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-icon name='card' item-start></ion-icon>
+            รหัสสมาชิก
+            <ion-note item-end>
+                {{ user.user_id }}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='contact' item-start></ion-icon>
+            ชื่อ-นามสกุล
+            <ion-note item-end>
+                {{ user.user_name }} {{ user.user_lname }}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='call' item-start></ion-icon>
+            เบอร์โทร
+            <ion-note item-end>
+                {{ user.phone }}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='mail' item-start></ion-icon>
+            อีเมลล์
+            <ion-note item-end>
+                {{ user.email }}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='key' item-start></ion-icon>
+            รหัสผ่าน
+            <ion-note item-end>
+                *********
+            </ion-note>
+            <button ion-button clear item-end (click)="edit()">แก้ไข</button>
+        </ion-item>
+    </ion-list>
+    <button ion-button full color="danger" icon-start (click)="logout()">
+        <ion-icon name="log-out"></ion-icon> ออกจากระบบ
+    </button>
+</ion-content>
