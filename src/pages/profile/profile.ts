@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AllFunctionProvider } from '../../providers/all-function/all-function';
 import { LoginPage } from '../login/login';
+import { EditPassPage } from '../edit-pass/edit-pass';
+import { EditProfilePage } from '../edit-profile/edit-profile';
 
 @IonicPage()
 @Component({
@@ -23,14 +25,16 @@ export class ProfilePage {
     ionViewDidLoad() {
 
     }
-    edit() {
-        this.allfunc.showAlert("กำลังปรับปรุง...");
+    editPass() {
+        this.app.getRootNav().push(EditPassPage);
+    }
+    editProfile() {
+        this.app.getRootNav().push(EditProfilePage);
     }
     logout() {
         this.allfunc.showConfirm('คุณแน่ใจต้องการออกจากระบบใช่ไหม ?').then(rs => {
             if (rs) {
                 this.allfunc.removeStorage('user');
-                //this.navCtrl.setRoot(LoginPage);
                 this.app.getRootNav().setRoot(LoginPage);
             }
         })

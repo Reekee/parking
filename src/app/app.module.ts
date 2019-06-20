@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { AllFunctionProvider } from '../providers/all-function/all-function';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { MyApp } from './app.component';
 import { SetApiPage } from '../pages/set-api/set-api';
@@ -18,9 +19,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { FloorPage } from '../pages/floor/floor';
 import { ParkingPage } from '../pages/parking/parking';
 import { PipesModule } from '../pipes/pipes.module';
-
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HistoryPage } from '../pages/history/history';
+import { EditPassPage } from '../pages/edit-pass/edit-pass';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,9 @@ import { HistoryPage } from '../pages/history/history';
         ProfilePage,
         FloorPage,
         ParkingPage,
-        HistoryPage
+        HistoryPage,
+        EditPassPage,
+        EditProfilePage
     ],
     imports: [
         BrowserModule,
@@ -53,7 +56,9 @@ import { HistoryPage } from '../pages/history/history';
         ProfilePage,
         FloorPage,
         ParkingPage,
-        HistoryPage
+        HistoryPage,
+        EditPassPage,
+        EditProfilePage
     ],
     providers: [
         StatusBar,

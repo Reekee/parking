@@ -39,9 +39,12 @@
             <ion-note item-end>
                 *********
             </ion-note>
-            <button ion-button clear item-end (click)="edit()">แก้ไข</button>
+            <button ion-button clear item-end (click)="editPass()">แก้ไข</button>
         </ion-item>
     </ion-list>
+    <button ion-button full color="light" icon-start (click)="editProfile()">
+        <ion-icon name="create"></ion-icon> แก้ไขโปรไฟล์
+    </button>
     <button ion-button full color="danger" icon-start (click)="logout()">
         <ion-icon name="log-out"></ion-icon> ออกจากระบบ
     </button>
