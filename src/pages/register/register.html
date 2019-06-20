@@ -6,24 +6,29 @@
 <ion-content padding>
     <ion-list>
         <ion-item>
+            <ion-icon name='card' item-start></ion-icon>
             <ion-label floating>ชื่อ</ion-label>
-            <ion-input type="text" [(ngModel)]="auth.user_name"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.user_name"></ion-input>
         </ion-item>
         <ion-item>
+            <ion-icon name='contact' item-start></ion-icon>
             <ion-label floating>นามสกุล</ion-label>
-            <ion-input type="text" [(ngModel)]="auth.user_lname"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.user_lname"></ion-input>
         </ion-item>
         <ion-item>
+            <ion-icon name='call' item-start></ion-icon>
             <ion-label floating>เบอร์โทร</ion-label>
-            <ion-input type="text" [(ngModel)]="auth.phone"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.phone"></ion-input>
         </ion-item>
         <ion-item>
+            <ion-icon name='mail' item-start></ion-icon>
             <ion-label floating>อีเมลล์</ion-label>
-            <ion-input type="text" [(ngModel)]="auth.email"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
+            <ion-icon name='key' item-start></ion-icon>
             <ion-label floating>รหัสผ่าน</ion-label>
-            <ion-input type="password" [(ngModel)]="auth.password"></ion-input>
+            <ion-input type="password" [(ngModel)]="user.password"></ion-input>
         </ion-item>
     </ion-list>
     <button ion-button full color="dark" icon-start (click)="register()">

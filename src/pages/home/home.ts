@@ -79,6 +79,7 @@ export class HomePage {
     }
     doCheckout(mode, code) {
         this.allfunc.callApi(this.allfunc.api + "checkout.php", {
+            checkin_id: this.data.checkin.checkin_id,
             user_id: this.allfunc.user.user_id,
             mode: mode,
             code: code

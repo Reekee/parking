@@ -9,7 +9,7 @@ import { TabsPage } from '../tabs/tabs';
     templateUrl: 'register.html',
 })
 export class RegisterPage {
-    auth: any = {};
+    user: any = {};
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -22,7 +22,7 @@ export class RegisterPage {
     register() {
         this.allfunc.showConfirm('คุณแน่ใจต้องการลงทะเบียนใช่ไหม ?').then(rs => {
             if (rs) {
-                this.allfunc.callApi(this.allfunc.api + "register.php", this.auth, true).then((res: any) => {
+                this.allfunc.callApi(this.allfunc.api + "register.php", this.user, true).then((res: any) => {
                     if (res.status) {
                         this.allfunc.user = res.user;
                         this.allfunc.setStorage('user', res.user);

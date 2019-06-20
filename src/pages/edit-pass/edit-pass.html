@@ -4,5 +4,24 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <div text-center>กำลังปรับปรุง</div>
+    <ion-list>
+        <ion-item>
+            <ion-icon name='key' item-start></ion-icon>
+            <ion-label floating>รหัสผ่านเดิม</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password1"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='key' item-start></ion-icon>
+            <ion-label floating>รหัสผ่านใหม่</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password2"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='key' item-start></ion-icon>
+            <ion-label floating>ยืนยันรหัสผ่านอีกครั้ง</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password3"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button full color="dark" icon-start (click)="edit()">
+        <ion-icon name="create"></ion-icon> ยืนยันการแก้ไข
+    </button>
 </ion-content>

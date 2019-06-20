@@ -37,7 +37,7 @@
             <ion-icon name='key' item-start></ion-icon>
             รหัสผ่าน
             <ion-note item-end>
-                *********
+                {{ showPass(user.password) }}
             </ion-note>
             <button ion-button clear item-end (click)="editPass()">แก้ไข</button>
         </ion-item>
