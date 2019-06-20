@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class AllFunctionProvider {
-    public api = "http://localhost:81/parking/";
+    public api = "http://192.168.1.36/parking/";
     public user: any = {};
     constructor(
         private http: HttpClient,

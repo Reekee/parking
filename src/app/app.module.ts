@@ -19,6 +19,9 @@ import { FloorPage } from '../pages/floor/floor';
 import { ParkingPage } from '../pages/parking/parking';
 import { PipesModule } from '../pipes/pipes.module';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { HistoryPage } from '../pages/history/history';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -29,7 +32,8 @@ import { PipesModule } from '../pipes/pipes.module';
         HomePage,
         ProfilePage,
         FloorPage,
-        ParkingPage
+        ParkingPage,
+        HistoryPage
     ],
     imports: [
         BrowserModule,
@@ -48,13 +52,15 @@ import { PipesModule } from '../pipes/pipes.module';
         HomePage,
         ProfilePage,
         FloorPage,
-        ParkingPage
+        ParkingPage,
+        HistoryPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
-        AllFunctionProvider
+        AllFunctionProvider,
+        BarcodeScanner
     ]
 })
 export class AppModule { }

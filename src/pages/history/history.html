@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>history</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div text-center *ngIf="loading">กำลังโหลด...</div>
+    <ion-list *ngIf="data.length>0">
+        <ion-item *ngFor="let item of data" (click)="open(item)">
+            <h2>{{ item.checkin_id }}</h2>
+            <p>Check In : {{ item.datetime1 }}</p>
+            <p>Check Out :
+                <span *ngIf="item.status=='N'">{{ item.datetime2 }}</span>
+                <span class="text-secondary" *ngIf="item.status=='Y'">กำลัง Check In</span>
+            </p>
+            <ion-note item-end>
+                <span class="text-danger" *ngIf="item.status=='Y'">{{ item.datetime1 | timeUse }} นาที</span>
+                <span class="text-secondary" *ngIf="item.status=='N'">{{ item.datetime1 | timeUse: item.datetime2 }}
+                    นาที</span>
+            </ion-note>
+        </ion-item>
+    </ion-list>
+    <div text-center *ngIf="!loading && data.length==0">ไม่พบประวัติการ Check In ของคุณ</div>
+</ion-content>

@@ -9,6 +9,7 @@ import { ParkingPage } from '../parking/parking';
     templateUrl: 'floor.html',
 })
 export class FloorPage {
+    loading = true;
     floor = [];
     constructor(
         public navCtrl: NavController,
@@ -21,7 +22,9 @@ export class FloorPage {
         this.load();
     }
     load() {
+        this.loading = true;
         this.allfunc.callApi(this.allfunc.api + "floor-get.php", {}, true).then((res: any) => {
+            this.loading = false;
             if (res.status) {
                 this.floor = res.data;
             } else {

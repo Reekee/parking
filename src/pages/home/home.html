@@ -11,7 +11,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <div *ngIf="!data.status">
+    <div *ngIf="!data.status" margin-bottom>
         <ion-card no-margin margin-bottom class="w-100">
             <ion-card-header>
                 ข้อมูลที่จอดรถ
@@ -25,7 +25,7 @@
             <ion-icon name="return-right"></ion-icon> CHECK IN
         </button>
     </div>
-    <div *ngIf="data.status">
+    <div *ngIf="data.status" margin-bottom>
         <ion-card no-margin margin-bottom class="w-100">
             <ion-card-header>
                 ข้อมูลการ Check In ของคุณ
@@ -63,4 +63,7 @@
             <ion-icon name="return-left"></ion-icon> CHECK OUT
         </button>
     </div>
+    <button ion-button full color="light" icon-start (click)="history()">
+        <ion-icon name="time"></ion-icon> ประวัติการ CHECK IN
+    </button>
 </ion-content>

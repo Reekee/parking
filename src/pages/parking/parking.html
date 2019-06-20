@@ -5,8 +5,8 @@
         </ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content>
-    <ion-card>
+<ion-content padding>
+    <ion-card no-margin margin-bottom class="w-100">
         <img src="{{ floor.floor_img }}" />
         <ion-card-content>
             <ion-card-title>
@@ -16,7 +16,8 @@
             </ion-card-title>
         </ion-card-content>
     </ion-card>
-    <ion-list>
+    <div text-center *ngIf="loading">กำลังโหลด...</div>
+    <ion-list *ngIf="parking.length>0">
         <ion-item *ngFor="let item of parking">
             <ion-icon name='car' item-start></ion-icon>
             {{ item.parking_name }}
@@ -26,4 +27,5 @@
             </ion-note>
         </ion-item>
     </ion-list>
+    <div text-center *ngIf="!loading && parking.length==0">ไม่พบประวัติการ Check In ของคุณ</div>
 </ion-content>
