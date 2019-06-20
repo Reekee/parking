@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AllFunctionProvider } from '../../providers/all-function/all-function';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
+import { ForgotPage } from '../forgot/forgot';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,8 @@ export class LoginPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private allfunc: AllFunctionProvider
+        private allfunc: AllFunctionProvider,
+        private app: App
     ) {
     }
     ionViewDidLoad() {
@@ -32,6 +34,9 @@ export class LoginPage {
         });
     }
     register() {
-        this.navCtrl.push(RegisterPage);
+        this.app.getRootNav().push(RegisterPage);
+    }
+    forgot() {
+        this.app.getRootNav().push(ForgotPage);
     }
 }

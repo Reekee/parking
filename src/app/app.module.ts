@@ -10,6 +10,7 @@ import { AllFunctionProvider } from '../providers/all-function/all-function';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { MyApp } from './app.component';
+import { LoadingPage } from '../pages/loading/loading';
 import { SetApiPage } from '../pages/set-api/set-api';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -22,10 +23,13 @@ import { PipesModule } from '../pipes/pipes.module';
 import { HistoryPage } from '../pages/history/history';
 import { EditPassPage } from '../pages/edit-pass/edit-pass';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { ForgotPage } from '../pages/forgot/forgot';
+import { ForgotSuccessPage } from '../pages/forgot-success/forgot-success';
 
 @NgModule({
     declarations: [
         MyApp,
+        LoadingPage,
         SetApiPage,
         LoginPage,
         RegisterPage,
@@ -36,7 +40,9 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
         ParkingPage,
         HistoryPage,
         EditPassPage,
-        EditProfilePage
+        EditProfilePage,
+        ForgotPage,
+        ForgotSuccessPage
     ],
     imports: [
         BrowserModule,
@@ -48,6 +54,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
+        LoadingPage,
         SetApiPage,
         LoginPage,
         RegisterPage,
@@ -58,7 +65,9 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
         ParkingPage,
         HistoryPage,
         EditPassPage,
-        EditProfilePage
+        EditProfilePage,
+        ForgotPage,
+        ForgotSuccessPage
     ],
     providers: [
         StatusBar,

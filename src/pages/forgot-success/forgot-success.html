@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>ส่งรหัสผ่านสำเร็จ</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div class="text">
+        ระบบได้ทำการส่งรหัสผ่านของคุณเข้าไปในอีเมลล์ <b>{{ email }}</b>
+        คุณสามารถเข้าไปตรวจสอบได้
+    </div>
+    <button ion-button block icon-start color="light" (click)="again()">
+        <ion-icon name="mail"></ion-icon> ส่งรหัสผ่านอีกครั้ง
+    </button>
+    <button ion-button block icon-start (click)="back()">
+        <ion-icon name="arrow-round-back"></ion-icon> กลับไปยังหน้าเข้าสู่ระบบ
+    </button>
+</ion-content>
