@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AllFunctionProvider } from '../../providers/all-function/all-function';
 import { TabsPage } from '../tabs/tabs';
+import { RegisterConfirmPage } from '../register-confirm/register-confirm';
 
 @IonicPage()
 @Component({
@@ -13,24 +14,20 @@ export class RegisterPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private allfunc: AllFunctionProvider
+        private allfunc: AllFunctionProvider,
+        private app: App
     ) {
     }
     ionViewDidLoad() {
 
     }
-    register() {
-        this.allfunc.showConfirm('คุณแน่ใจต้องการลงทะเบียนใช่ไหม ?').then(rs => {
-            if (rs) {
-                this.allfunc.callApi(this.allfunc.api + "register.php", this.user, true).then((res: any) => {
-                    if (res.status) {
-                        this.allfunc.user = res.user;
-                        this.allfunc.setStorage('user', res.user);
-                        this.navCtrl.setRoot(TabsPage);
-                    } else {
-                        this.allfunc.showAlert(res.message);
-                    }
-                });
+    next() {
+        // this.app.getRootNav().push(RegisterConfirmPage, { user: JSON.parse(JSON.stringify(this.user)) });
+        this.allfunc.callApi(this.allfunc.api + "register.php", this.user, true).then((res: any) => {
+            if (res.status) {
+                this.app.getRootNav().push(RegisterConfirmPage, { user: JSON.parse(JSON.stringify(res.user)) });
+            } else {
+                this.allfunc.showAlert(res.message);
             }
         });
     }

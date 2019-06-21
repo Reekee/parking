@@ -31,7 +31,6 @@ export class AllFunctionProvider {
                 }, error => {
                     if (isloading == true) { loading.dismiss(); }
                     this.showAlert("Error เนื่องจากไม่สามารถติดต่อเครื่องแม่ข่ายได้");
-                    resolve(error);
                 });
             }, 0);
         });

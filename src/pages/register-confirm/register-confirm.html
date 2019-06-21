@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>ยืนยันการลงทะเบียน</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-icon name='card' item-start></ion-icon>
+            <ion-label floating>ชื่อ</ion-label>
+            <ion-input type="text" [(ngModel)]="user.user_name" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='contact' item-start></ion-icon>
+            <ion-label floating>นามสกุล</ion-label>
+            <ion-input type="text" [(ngModel)]="user.user_lname" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='call' item-start></ion-icon>
+            <ion-label floating>เบอร์โทร</ion-label>
+            <ion-input type="text" [(ngModel)]="user.phone" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='mail' item-start></ion-icon>
+            <ion-label floating>อีเมลล์</ion-label>
+            <ion-input type="text" [(ngModel)]="user.email" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name='key' item-start></ion-icon>
+            <ion-label floating>รหัสผ่าน</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password" disabled="true"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-card no-margin margin-bottom class="w-100">
+        <ion-card-content>
+            ระบบได้ทำการส่งรหัสยืนยัน 4 หลักเข้าไปยังในอีเมลล์ <b>{{ user.email }}</b> โปรดตรวจสอบและนำรหัสยืนยัน 4
+            หลักมายืนยันอีกครั้ง
+        </ion-card-content>
+        <ion-list>
+            <ion-item>
+                <ion-icon name='lock' item-start></ion-icon>
+                <ion-label floating>ระบุรหัสยืนยัน 4 หลัก</ion-label>
+                <ion-input type="text" [(ngModel)]="user.confirm"></ion-input>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <button ion-button full color="dark" icon-start (click)="register()">
+        <ion-icon name="checkbox"></ion-icon> ยืนยันการลงทะเบียน
+    </button>
+</ion-content>

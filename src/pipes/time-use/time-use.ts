@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, NgZone, Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
+
 @Pipe({
     name: 'timeUse',
     pure: false

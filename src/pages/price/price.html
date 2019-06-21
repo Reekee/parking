@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>รายละเอียดการชำระเงิน</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-card no-margin margin-bottom class="w-100">
+        <ion-card-header>
+            ข้อมูลการเข้า/ออก ที่จอดรถของคุณ
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    วัน-เวลา เข้า
+                    <ion-note item-end>
+                        {{ data.datetime1 }}
+                    </ion-note>
+                </ion-item>
+                <ion-item>
+                    วัน-เวลา ออก
+                    <ion-note item-end>
+                        <span *ngIf="data.status=='Y'" class="text-secondary">กำลัง Check In</span>
+                        <span *ngIf="data.status=='N'">{{ data.datetime2 }}</span>
+                    </ion-note>
+                </ion-item>
+                <ion-item>
+                    <p margin-top text-center class="text-danger">
+                        ฟรี {{ data.rate_over }} นาทีแรก เกินปรับ
+                        {{ data.rate_price }} บาท/นาที
+                    </p>
+                </ion-item>
+                <ion-item>
+                    <div class="time-use-label">เวลาที่ใช้</div>
+                    <ion-note item-end>
+                        <div *ngIf="data.status=='Y'" class="time-use-value text-danger">{{ data.datetime1 | timeUse }}
+                            นาที</div>
+                        <div *ngIf="data.status=='N'" class="time-use-value text-secondary">
+                            {{ data.datetime1 | timeUse : data.datetime2 }} นาที
+                        </div>
+                    </ion-note>
+                </ion-item>
+                <ion-item>
+                    <div class="time-use-label">ยอดเงินชำระ</div>
+                    <ion-note item-end>
+                        <div *ngIf="data.status=='Y'" class="time-use-value text-danger">
+                            {{ data.datetime1 | timeUse | priceUse : data.rate_over : data.rate_price }}
+                            บาท
+                        </div>
+                        <div *ngIf="data.status=='N'" class="time-use-value text-secondary">{{ data.price }} บาท
+                        </div>
+                    </ion-note>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

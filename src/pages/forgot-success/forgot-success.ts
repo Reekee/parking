@@ -9,20 +9,32 @@ import { LoginPage } from '../login/login';
     templateUrl: 'forgot-success.html',
 })
 export class ForgotSuccessPage {
-    email: string = '';
+    auth: any = {};
+    sending = false;
+    error = '';
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         private allfunc: AllFunctionProvider,
         private app: App
     ) {
-        this.email = this.navParams.get('email');
+        this.auth = this.navParams.get('auth');
     }
     ionViewDidLoad() {
 
     }
-    again() {
+    send() {
+        this.sending = true;
+        this.error = '';
+        this.allfunc.callApi(this.allfunc.api + "forgot.php", this.auth, true).then((res: any) => {
+            this.sending = false;
+            if (res.status) {
 
+            } else {
+                this.error = res.message;
+                this.allfunc.showAlert(res.message);
+            }
+        });
     }
     back() {
         this.app.getRootNav().setRoot(LoginPage);

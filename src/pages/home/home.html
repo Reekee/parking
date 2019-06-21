@@ -28,32 +28,40 @@
     <div *ngIf="data.status">
         <ion-card no-margin margin-bottom class="w-100">
             <ion-card-header>
-                ข้อมูลการ Check In ของคุณ
+                ข้อมูลการเข้า/ออก ที่จอดรถของคุณ
             </ion-card-header>
             <ion-card-content>
                 <ion-list>
                     <ion-item>
-                        รหัส
-                        <ion-note item-end>
-                            {{ data.checkin.checkin_id }}
-                        </ion-note>
-                    </ion-item>
-                    <ion-item>
-                        วัน-เวลา
+                        วัน-เวลา เข้า
                         <ion-note item-end>
                             {{ data.checkin.datetime1 }}
                         </ion-note>
                     </ion-item>
                     <ion-item>
-                        สถานะ
+                        วัน-เวลา ออก
                         <ion-note item-end>
                             <div class="text-secondary">กำลัง Check In</div>
                         </ion-note>
                     </ion-item>
                     <ion-item>
+                        <p margin-top text-center class="text-danger">
+                            ฟรี {{ data.checkin.rate_over }} นาทีแรก เกินปรับ
+                            {{ data.checkin.rate_price }} บาท/นาที
+                        </p>
+                    </ion-item>
+                    <ion-item>
                         <div class="time-use-label">เวลาที่ใช้</div>
                         <ion-note item-end>
                             <div class="time-use-value text-danger">{{ data.checkin.datetime1 | timeUse }} นาที</div>
+                        </ion-note>
+                    </ion-item>
+                    <ion-item>
+                        <div class="time-use-label">ยอดเงินชำระ</div>
+                        <ion-note item-end>
+                            <div class="time-use-value text-danger">
+                                {{ data.checkin.datetime1 | timeUse | priceUse : data.checkin.rate_over : data.checkin.rate_price }}
+                                บาท</div>
                         </ion-note>
                     </ion-item>
                 </ion-list>

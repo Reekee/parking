@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar color="info">
+        <ion-title>เงือนไข</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            จำนวนนาทีแรกที่จอดรถฟรี
+            <ion-note item-end>
+                {{ data.rate_over }} นาทีแรก
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            ค่าปรับเมื่อจอดรถเกินลิมิต
+            <ion-note item-end>
+                {{ data.rate_price }} บาทต่อนาที
+            </ion-note>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -4,11 +4,17 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <div class="text">
-        ระบบได้ทำการส่งรหัสผ่านของคุณเข้าไปในอีเมลล์ <b>{{ email }}</b>
+    <div *ngIf="sending" class="sending">
+        กำลังส่งข้อมูล...
+    </div>
+    <div *ngIf="!sending && error==''" class="text">
+        ระบบได้ทำการส่งรหัสผ่านของคุณเข้าไปในอีเมลล์ <b>{{ auth.email }}</b>
         คุณสามารถเข้าไปตรวจสอบได้
     </div>
-    <button ion-button block icon-start color="light" (click)="again()">
+    <div *ngIf="!sending && error!=''" class="error">
+        เกิดข้อผิดพลาดเนื่องจาก {{ error }}
+    </div>
+    <button ion-button block icon-start color="light" (click)="send()">
         <ion-icon name="mail"></ion-icon> ส่งรหัสผ่านอีกครั้ง
     </button>
     <button ion-button block icon-start (click)="back()">

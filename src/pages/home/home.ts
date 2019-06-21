@@ -4,6 +4,7 @@ import { AllFunctionProvider } from '../../providers/all-function/all-function';
 import { FloorPage } from '../floor/floor';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HistoryPage } from '../history/history';
+import { PricePage } from '../price/price';
 
 @Component({
     selector: 'page-home',
@@ -78,14 +79,16 @@ export class HomePage {
         });
     }
     doCheckout(mode, code) {
+        let checkin_id = this.data.checkin.checkin_id;
         this.allfunc.callApi(this.allfunc.api + "checkout.php", {
-            checkin_id: this.data.checkin.checkin_id,
+            checkin_id: checkin_id,
             user_id: this.allfunc.user.user_id,
             mode: mode,
             code: code
         }, true).then((res: any) => {
             if (res.status) {
                 this.data = res.data;
+                this.app.getRootNav().push(PricePage, { checkin_id: checkin_id });
             } else {
                 this.allfunc.showAlert(res.message);
             }

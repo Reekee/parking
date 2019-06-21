@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AllFunctionProvider } from '../../providers/all-function/all-function';
+import { PricePage } from '../price/price';
 
 @IonicPage()
 @Component({
@@ -22,7 +23,7 @@ export class HistoryPage {
     }
     load() {
         this.loading = true;
-        this.allfunc.callApi(this.allfunc.api + "checkin-get.php", {
+        this.allfunc.callApi(this.allfunc.api + "history-get.php", {
             user_id: this.allfunc.user.user_id
         }, true).then((res: any) => {
             this.loading = false;
@@ -34,6 +35,6 @@ export class HistoryPage {
         });
     }
     open(item) {
-        //this.app.getRootNav().push(ParkingPage, { floor: item });
+        this.app.getRootNav().push(PricePage, { checkin_id: item.checkin_id });
     }
 }

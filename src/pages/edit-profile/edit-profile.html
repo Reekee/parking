@@ -23,7 +23,7 @@
         <ion-item>
             <ion-icon name='mail' item-start></ion-icon>
             <ion-label floating>อีเมลล์</ion-label>
-            <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.email" disabled="true"></ion-input>
         </ion-item>
     </ion-list>
     <button ion-button full color="dark" icon-start (click)="edit()">

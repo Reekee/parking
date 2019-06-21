@@ -14,6 +14,7 @@ import { LoadingPage } from '../pages/loading/loading';
 import { SetApiPage } from '../pages/set-api/set-api';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { RegisterConfirmPage } from '../pages/register-confirm/register-confirm';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
@@ -25,6 +26,8 @@ import { EditPassPage } from '../pages/edit-pass/edit-pass';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { ForgotPage } from '../pages/forgot/forgot';
 import { ForgotSuccessPage } from '../pages/forgot-success/forgot-success';
+import { ConditionPage } from '../pages/condition/condition';
+import { PricePage } from '../pages/price/price';
 
 @NgModule({
     declarations: [
@@ -33,6 +36,7 @@ import { ForgotSuccessPage } from '../pages/forgot-success/forgot-success';
         SetApiPage,
         LoginPage,
         RegisterPage,
+        RegisterConfirmPage,
         TabsPage,
         HomePage,
         ProfilePage,
@@ -42,7 +46,9 @@ import { ForgotSuccessPage } from '../pages/forgot-success/forgot-success';
         EditPassPage,
         EditProfilePage,
         ForgotPage,
-        ForgotSuccessPage
+        ForgotSuccessPage,
+        ConditionPage,
+        PricePage
     ],
     imports: [
         BrowserModule,
@@ -58,6 +64,7 @@ import { ForgotSuccessPage } from '../pages/forgot-success/forgot-success';
         SetApiPage,
         LoginPage,
         RegisterPage,
+        RegisterConfirmPage,
         TabsPage,
         HomePage,
         ProfilePage,
@@ -67,7 +74,9 @@ import { ForgotSuccessPage } from '../pages/forgot-success/forgot-success';
         EditPassPage,
         EditProfilePage,
         ForgotPage,
-        ForgotSuccessPage
+        ForgotSuccessPage,
+        ConditionPage,
+        PricePage
     ],
     providers: [
         StatusBar,

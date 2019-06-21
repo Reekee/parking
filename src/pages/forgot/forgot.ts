@@ -20,14 +20,13 @@ export class ForgotPage {
     ionViewDidLoad() {
 
     }
-    submit() {
-        this.app.getRootNav().setRoot(ForgotSuccessPage, { email: this.auth.email });
-        // this.allfunc.callApi(this.allfunc.api + "forgot.php", this.auth, true).then((res: any) => {
-        //     if (res.status) {
-        //         this.app.getRootNav().push(ForgotSuccessPage);
-        //     } else {
-        //         this.allfunc.showAlert(res.message);
-        //     }
-        // });
+    send() {
+        this.allfunc.callApi(this.allfunc.api + "forgot.php", this.auth, true).then((res: any) => {
+            if (res.status) {
+                this.app.getRootNav().setRoot(ForgotSuccessPage, { auth: JSON.parse(JSON.stringify(this.auth)) });
+            } else {
+                this.allfunc.showAlert(res.message);
+            }
+        });
     }
 }
