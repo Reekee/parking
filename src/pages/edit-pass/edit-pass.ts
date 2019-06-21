@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { AllFunctionProvider } from '../../providers/all-function/all-function';
-import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -13,7 +12,6 @@ export class EditPassPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private app: App,
         private allfunc: AllFunctionProvider,
         public events: Events
     ) {

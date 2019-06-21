@@ -8,11 +8,13 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SetApiPage } from '../pages/set-api/set-api';
 import { HttpClient } from '@angular/common/http';
+import { LoadingPage } from '../pages/loading/loading';
+
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: any;
+    rootPage: any = LoadingPage;
     constructor(
         platform: Platform,
         statusBar: StatusBar,

@@ -17,9 +17,7 @@ export class TimeUsePipe implements PipeTransform {
         let d = new Date(moment(value).unix() * 1000);
         let now = (value2 == null) ? new Date() : new Date(moment(value2).unix() * 1000);
         let milliSec = now.getTime() - d.getTime();
-        let sec = Math.floor((milliSec) / 1000);
         let min = Math.floor(milliSec / 1000 / 60);
-        let hr = Math.floor(milliSec / 1000 / 60 / 60);
         if (value2 == null) {
             let timeToUpdate = 1000 * 60 - (milliSec % (1000 * 60));
             this.timer = this.ngZone.runOutsideAngular(() => {

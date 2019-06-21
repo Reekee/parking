@@ -1,5 +1,4 @@
-import { ChangeDetectorRef, NgZone, Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'priceUse',

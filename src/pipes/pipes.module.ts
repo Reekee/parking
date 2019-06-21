@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { DatetimeAgoPipe } from './datetime-ago/datetime-ago';
 import { TimeUsePipe } from './time-use/time-use';
 import { PriceUsePipe } from './price-use/price-use';
 @NgModule({
-    declarations: [DatetimeAgoPipe,
+    declarations: [
         TimeUsePipe,
-        PriceUsePipe],
+        PriceUsePipe
+    ],
     imports: [],
-    exports: [DatetimeAgoPipe,
+    exports: [
         TimeUsePipe,
-        PriceUsePipe]
+        PriceUsePipe
+    ]
 })
 export class PipesModule { }

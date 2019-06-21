@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AllFunctionProvider } from '../../providers/all-function/all-function';
-import { TabsPage } from '../tabs/tabs';
 import { RegisterConfirmPage } from '../register-confirm/register-confirm';
 
 @IonicPage()
@@ -22,7 +21,6 @@ export class RegisterPage {
 
     }
     next() {
-        // this.app.getRootNav().push(RegisterConfirmPage, { user: JSON.parse(JSON.stringify(this.user)) });
         this.allfunc.callApi(this.allfunc.api + "register.php", this.user, true).then((res: any) => {
             if (res.status) {
                 this.app.getRootNav().push(RegisterConfirmPage, { user: JSON.parse(JSON.stringify(res.user)) });
