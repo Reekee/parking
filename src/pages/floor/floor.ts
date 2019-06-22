@@ -19,11 +19,11 @@ export class FloorPage {
     ) {
     }
     ionViewDidLoad() {
-        this.load();
+        this.load(true);
     }
-    load() {
+    load(loading) {
         this.loading = true;
-        this.allfunc.callApi(this.allfunc.api + "floor-get.php", {}, true).then((res: any) => {
+        this.allfunc.callApi(this.allfunc.api + "floor-get.php", {}, loading).then((res: any) => {
             this.loading = false;
             if (res.status) {
                 this.floor = res.data;

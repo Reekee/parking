@@ -19,12 +19,16 @@ export class HomePage {
         public platform: Platform,
         private barcodeScanner: BarcodeScanner
     ) {
-        this.load();
+
     }
-    load() {
+    ionViewDidEnter() {
+        let loading = (this.data.status) ? false : true;
+        this.load(loading);
+    }
+    load(loading) {
         this.allfunc.callApi(this.allfunc.api + "home-get.php", {
             user_id: this.allfunc.user.user_id
-        }, true).then((res: any) => {
+        }, loading).then((res: any) => {
             if (res.status) {
                 this.data = res.data;
             } else {

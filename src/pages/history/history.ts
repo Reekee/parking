@@ -19,13 +19,13 @@ export class HistoryPage {
     ) {
     }
     ionViewDidLoad() {
-        this.load();
+        this.load(true);
     }
-    load() {
+    load(loading) {
         this.loading = true;
         this.allfunc.callApi(this.allfunc.api + "history-get.php", {
             user_id: this.allfunc.user.user_id
-        }, true).then((res: any) => {
+        }, loading).then((res: any) => {
             this.loading = false;
             if (res.status) {
                 this.data = res.data;

@@ -4,8 +4,8 @@
             หน้าแรก
         </ion-title>
         <ion-buttons end>
-            <button ion-button icon-only color="royal" (click)="check()">
-                <ion-icon name="checkbox-outline"></ion-icon> ตรวจสอบที่ว่าง
+            <button ion-button icon-only color="royal" (click)="load(true)">
+                <ion-icon name="sync"></ion-icon>
             </button>
         </ion-buttons>
     </ion-navbar>
@@ -17,11 +17,13 @@
                 ข้อมูลที่จอดรถ
             </ion-card-header>
             <ion-card-content>
-                <div *ngIf="data.num>0" class="text-secondary text-center">มีที่จอดว่าง {{ data.num }} ที่</div>
+                <div *ngIf="data.num>0" class="text-secondary text-center" (click)="check()">
+                    มีที่จอดว่าง {{ data.num }} ที่
+                </div>
                 <div *ngIf="data.num==0" class="text-danger text-center">ไม่มีที่ว่าง</div>
             </ion-card-content>
         </ion-card>
-        <button ion-button full color="secondary" icon-start (click)="checkin()">
+        <button ion-button full large color="secondary" icon-start (click)="checkin()">
             <ion-icon name="return-right"></ion-icon> CHECK IN
         </button>
     </div>
@@ -67,10 +69,13 @@
                 </ion-list>
             </ion-card-content>
         </ion-card>
-        <button ion-button full color="warning" icon-start (click)="checkout()">
+        <button ion-button full large color="warning" icon-start (click)="checkout()">
             <ion-icon name="return-left"></ion-icon> CHECK OUT
         </button>
     </div>
+    <button ion-button full color="tertiary" icon-start (click)="check()">
+        <ion-icon name="checkbox-outline"></ion-icon> ตรวจสอบที่ว่าง
+    </button>
     <button ion-button full color="light" icon-start (click)="history()">
         <ion-icon name="time"></ion-icon> ประวัติการ CHECK IN
     </button>

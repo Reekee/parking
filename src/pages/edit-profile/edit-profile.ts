@@ -20,10 +20,10 @@ export class EditProfilePage {
     }
     ionViewDidLoad() {
         this.user = JSON.parse(JSON.stringify(this.allfunc.user));
-        this.load();
+        this.load(true);
     }
-    load() {
-        this.allfunc.callApi(this.allfunc.api + "login.php", this.user, true).then((res: any) => {
+    load(loading) {
+        this.allfunc.callApi(this.allfunc.api + "login.php", this.user, loading).then((res: any) => {
             if (res.status) {
                 this.user = JSON.parse(JSON.stringify(res.user));
                 this.allfunc.user = JSON.parse(JSON.stringify(res.user));

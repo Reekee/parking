@@ -25,6 +25,20 @@ export class ProfilePage {
     }
     ionViewDidEnter() {
         this.user = this.allfunc.user;
+        this.load(false);
+    }
+    load(loading) {
+        this.allfunc.callApi(this.allfunc.api + "login.php", this.user, loading).then((res: any) => {
+            if (res.status) {
+                this.user = JSON.parse(JSON.stringify(res.user));
+                this.allfunc.user = JSON.parse(JSON.stringify(res.user));
+                this.allfunc.setStorage('user', res.user);
+            } else {
+                this.allfunc.user = {};
+                this.allfunc.removeStorage('user');
+                this.app.getRootNav().setRoot(LoginPage);
+            }
+        });
     }
     editPass() {
         this.app.getRootNav().push(EditPassPage);

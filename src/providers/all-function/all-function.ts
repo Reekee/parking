@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoadingController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { timeout } from 'rxjs/operators/timeout';
 
 @Injectable()
 export class AllFunctionProvider {
@@ -15,7 +16,7 @@ export class AllFunctionProvider {
     ) {
 
     }
-    callApi(url, data, isloading) {
+    callApi(url, data = {}, isloading = true, showAlert = true) {
         let loading: any;
         if (isloading == true) {
             loading = this.loadingCtrl.create({
@@ -25,14 +26,18 @@ export class AllFunctionProvider {
         }
         return new Promise((resolve) => {
             setTimeout(() => {
-                this.http.post(url, JSON.stringify(data)).subscribe((res: any) => {
-                    if (isloading == true) { loading.dismiss(); }
-                    resolve(res);
-                }, error => {
-                    if (isloading == true) { loading.dismiss(); }
-                    this.showAlert("Error เนื่องจากไม่สามารถติดต่อเครื่องแม่ข่ายได้");
-                });
+                this.http.post(url, JSON.stringify(data))
+                    .pipe(timeout(2000))
+                    .subscribe((res: any) => {
+                        if (isloading == true) { loading.dismiss(); }
+                        resolve(res);
+                    }, error => {
+                        if (isloading == true) { loading.dismiss(); }
+                        if (showAlert) this.showAlert("Error เนื่องจากไม่สามารถติดต่อเครื่องแม่ข่ายได้");
+                    });
             }, 0);
+
+
         });
     }
     showAlert(message) {

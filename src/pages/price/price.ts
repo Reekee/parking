@@ -18,12 +18,12 @@ export class PricePage {
         this.checkin_id = this.navParams.get('checkin_id');
     }
     ionViewDidLoad() {
-        this.load();
+        this.load(true);
     }
-    load() {
+    load(loading) {
         this.allfunc.callApi(this.allfunc.api + "checkin-get.php", {
             checkin_id: this.checkin_id
-        }, true).then((res: any) => {
+        }, loading).then((res: any) => {
             if (res.status) {
                 this.data = res.data;
             } else {

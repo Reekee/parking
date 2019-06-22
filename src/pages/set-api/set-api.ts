@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { HttpClient } from '@angular/common/http';
 import { MyApp } from '../../app/app.component';
 import { AllFunctionProvider } from '../../providers/all-function/all-function';
+import { timeout } from 'rxjs/operators/timeout';
 
 @IonicPage()
 @Component({
@@ -36,18 +37,19 @@ export class SetApiPage {
         loading.present();
         this.isConnect = false;
         let api = this.protocol + "//" + this.server + this.name;
-        this.http.post(api + "check-parking-api.php", JSON.stringify({})).subscribe((res: any) => {
+        this.http.post(api + "check-parking-api.php", JSON.stringify({
+        })).pipe(timeout(2000)).subscribe((res: any) => {
             loading.dismiss();
             if (res.status) {
                 this.allfunc.showAlert("ติดต่อได้").then(rs => {
                     this.isConnect = true;
                 });
             } else {
-                this.allfunc.showAlert("ไม่สามารถติดต่อเครื่องแม่ข่ายได้");
+                this.allfunc.showAlert("Error เนื่องจากไม่สามารถติดต่อเครื่องแม่ข่ายได้ <br><br>โปรดระบุที่ตั้ง Api Service");
             }
         }, error => {
             loading.dismiss();
-            this.allfunc.showAlert("ไม่สามารถติดต่อเครื่องแม่ข่ายได้");
+            this.allfunc.showAlert("Error เนื่องจากไม่สามารถติดต่อเครื่องแม่ข่ายได้ <br><br>โปรดระบุที่ตั้ง Api Service");
         });
     }
     edit() {

@@ -16,10 +16,10 @@ export class ConditionPage {
     ) {
     }
     ionViewDidEnter() {
-        this.load();
-    }
-    load() {
         let loading = (this.data.rate_id) ? false : true;
+        this.load(loading);
+    }
+    load(loading) {
         this.allfunc.callApi(this.allfunc.api + "condition-get.php", {
         }, loading).then((res: any) => {
             if (res.status) {

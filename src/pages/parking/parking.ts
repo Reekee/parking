@@ -17,16 +17,16 @@ export class ParkingPage {
         private allfunc: AllFunctionProvider
     ) {
         this.floor = this.navParams.get("floor");
-        this.load();
+        this.load(true);
     }
     ionViewDidLoad() {
 
     }
-    load() {
+    load(loading) {
         this.loading = true;
         this.allfunc.callApi(this.allfunc.api + "parking-get.php", {
             floor_id: this.floor.floor_id
-        }, true).then((res: any) => {
+        }, loading).then((res: any) => {
             this.loading = false;
             if (res.status) {
                 this.parking = res.data;
